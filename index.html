@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Realidad Aumentada - Red Neuronal</title>
+  <!-- Librería A-Frame -->
+  <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+  <!-- Librería AR.js para A-Frame -->
+  <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
+</head>
+
+<body style="margin: 0px; overflow: hidden;">
+  <!-- Escenario AR vinculando la cámara del dispositivo -->
+  <a-scene embedded arjs="sourceType: webcam; debugUIEnabled: false;">
+    
+    <!-- Carga de assets (Modelo 3D) -->
+    <a-assets>
+      <a-asset-item id="modeloNeurona" src="modelos_3D/red_neuronal.glb"></a-asset-item>
+    </a-assets>
+
+    <!-- Marcador Personalizado (.patt) o Marcador Hiro predeterminado -->
+    <!-- Para marcador personalizado, usar: <a-marker type="pattern" url="marcadore/patron.patt"> -->
+    <a-marker preset="hiro">
+      <!-- Objeto 3D sobre el marcador -->
+      <a-entity 
+        gltf-model="#modeloNeurona" 
+        scale="0.5 0.5 0.5" 
+        position="0 0 0" 
+        rotation="0 0 0">
+      </a-entity>
+    </a-marker>
+
+    <!-- Cámara para renderizar la escena -->
+    <a-entity camera></a-entity>
+  </a-scene>
+</body>
+</html>
